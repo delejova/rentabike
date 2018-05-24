@@ -1,0 +1,52 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+
+</header>
+         
+    
+    <div aling:center> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>    
+<h4>Change password</h4>
+
+<div n:if="$resetPassword">
+    
+    <h3>Welcome {$firstName} {$lastName} </h3> 
+        <br>
+        <br>
+        <form n:name=changeForgotPasswordForm class=form>
+    <p><label n:name=password>Password: <input n:name=password ></label>
+    <p><label n:name=password_repeat>Password again: <input n:name=password_repeat></label>
+    <p><input n:name=changePswd class="btn btn-brand">
+        
+    </form> 
+        
+   
+</div>
+    </div>
+      
+        
+
+            
+{/block}
+
+{block head}
+
+<style>
+
+</style>
+{/block} 

@@ -1,0 +1,9 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=sql.generacia.xyz:3306;dbname=ma018801db'
+	user: 'ma018800'
+	password: 'H!pst3r!*2016'
+	options:
+		lazy: yes

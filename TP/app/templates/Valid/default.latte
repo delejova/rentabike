@@ -1,0 +1,56 @@
+{* Latte template *}
+
+{block content}
+{$email}
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+          <li><a n:href=":Sign:logout">Log out</a></li>   
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    
+<div align="center">
+    <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<form n:name=validationForm class=form>
+    <p><label n:name=validationCode>Validation Code: <input n:name=validationCode ></label>
+
+    <p><input n:name=confirm class="btn btn-brand">
+</form>
+    
+
+</div>
+    
+
+            
+{/block}
+
+{block head}
+
+<style>
+
+</style>
+{/block}  

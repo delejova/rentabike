@@ -1,0 +1,82 @@
+{* Latte template *}
+
+{block content}
+
+
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+         
+         <li><a n:href=":Profil:default">{$email}</a></li>
+         <li><a n:href=":Sign:logout">Log out</a></li>
+           <li><a n:href=":Profil:default"><span class="sr-only">Back</span>
+          <span class="icon icon-scroll-left"></span></a></li>  
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div align:center>   <br>
+        
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<h4>Choose your place</h4>
+
+<h2><b>Important notice!</b></h2><br>
+<p>
+Place of renting the bike must be the same place of its returning. 
+<br>When you rent the bike from CBC, you must return this bike on CBC.
+<br>When you rent the bike from Tesla, you must return this bike on Tesla.</p>
+<br>
+
+
+<form n:name=placeFormCBC class=form>
+    <p><input n:name=cbc class="btn btn-brand" >
+</form>
+ 
+<form n:name=placeFormTesla class=form>
+    <p><input n:name=tesla class="btn btn-brand">
+</form>
+
+</div>
+    
+ 
+    
+
+            
+{/block}
+
+{block head}
+
+<style>
+    p{
+        font-size: 15px;
+   
+        line-height: 1.5;
+    }
+</style>
+{/block}  
+
+
+
+  

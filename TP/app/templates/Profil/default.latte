@@ -1,0 +1,245 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+            
+            <li><a n:href=":Profil:default">{$email}</a></li>
+           <li><a n:href=":Sign:logout">Log out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+          
+           
+
+
+
+<div align="center"> <br>
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+  
+<h2><strong> {$fisrtName} {$lastName} </h2>
+
+
+                
+    
+
+     <h4>  Reservations </h4>
+    {if $reservedBikes}
+        
+        
+                <div class="table-responsive">
+                 <table class="table">
+
+
+                <table border="1">
+                    <tr> 
+                        <!--<th> ID employee</th>-->
+<!--                        <th> First name</th>
+                        <th> Last name</th>-->
+                        <th> Bike number</th>
+                        <th> Bike name</th>
+                        <th> Book start</th>
+                        <th> Book end</th>
+                        <!--<th> Status rent </th>-->
+                        <!--<th> Status bike</th>-->
+                        <th> Action </th>
+                        <th> Action </th>
+                    </tr>
+                    {foreach $reservedBikes as $reservedBike}
+                        <tr>
+                            <!--<td> {*$reservedBike->id_employee*} </td>-->
+<!--                            <td> {*$reservedBike->first_name*} </td>
+                            <td> {*$reservedBike->last_name*} </td>-->
+                            <td> {$reservedBike->bike_number} </td>
+                            <td> {$reservedBike->bike_name} </td>
+                            <td> {$reservedBike->book_start} </td>
+                            <td> {$reservedBike->book_end} </td>
+                            <!--<td> {*$reservedBike->rent_status*} </td>-->
+                            <!--<td> {*$reservedBike->bike_status*} </td>-->
+                           
+                            <td>
+                                <button type="button"  class="btn btn-all" data-toggle="modal" data-target="#myModal">delete</button>
+
+                            </td>
+                            <td>
+                                {control editRentButton-$reservedBike->id} <!--  prenasa sa rent id-->
+                            </td>   
+                        </tr> 
+                             {/foreach}   
+                    </table>
+                    <br>
+            </div>
+                    
+       
+        <form n:name=placeFormDefault class=form>
+            <p><input n:name=rezervovat class="btn btn-brand">
+        </form>
+
+  <div id="myModal" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+   
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Warning!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you really sure you want to delete a bike?</p>
+      </div>
+      <div class="modal-footer">
+          {control deleteRentButton-$reservedBike->id}<br/>
+        <button type="button" class="btn btn-brand" data-dismiss="modal">No</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+    {else}
+        <br> <br> <br>
+        <strong> You don't have any reserved bikes. </strong><br><br><br>
+        <form n:name=placeFormDefault class=form>
+            <p><input n:name=rezervovat class="btn btn-brand">
+        </form>
+    {/if}
+
+    {if $rentedBikes}
+        <h4>  Bookings </h4>
+        <div class="table-responsive">
+            <table class="table">
+                <table border="1">
+                    <tr> 
+                        <!--<th> ID employee</th>-->
+<!--                        <th> First name</th>
+                        <th> Last name</th>-->
+                        <th> Bike number</th>
+                        <th> Bike name</th>
+                        <th> Book start</th>
+                        <th> Book end</th>
+                        <!--<th> Status rent</th>-->
+                        <!--<th> Status bike</th>-->
+                        <th> Rent start </th>
+                    </tr>
+                    {foreach $rentedBikes as $rentedBike}
+                        <tr>
+                            <!--<td> {*$rentedBike->id_employee*} </td>-->
+<!--                            <td> {*$rentedBike->first_name*} </td>
+                            <td> {*$rentedBike->last_name*} </td>-->
+                            <td> {$rentedBike->bike_number} </td>
+                            <td> {$rentedBike->bike_name} </td>
+                            <td> {$rentedBike->book_start} </td>
+                            <td> {$rentedBike->book_end} </td>
+                            
+                            
+
+                            <!--<td> {*$rentedBike->rent_status*} </td>-->
+                            <!--<td> {*$rentedBike->bike_status*} </td>-->
+                            <td> {$rentedBike->rent_start} </td>
+                        </tr>
+                    {/foreach}
+                </table>
+
+        </div>
+    {else}
+    {/if}
+
+
+
+    <div n:if="$admin">
+        <br><a n:href=":Receptionist:">MANAGE RESERVATIONS</a> <br>
+        <br><a n:href=":Facility:">MANAGE BIKES</a>
+        <br>
+    </div>
+
+    <div n:if="$receptionist">
+        <br><a n:href=":Receptionist:">MANAGE RESERVATIONS</a>
+        <br>
+    </div>
+    <br>
+    <div n:if="$employee">
+        <br>
+    </div>
+    <br>
+    <div n:if="$facility">
+        <br><a n:href=":Facility:">MANAGE BIKES</a>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+ $(document).ready( function(){
+        $("input[name=edit]").addClass("btn btn-all");
+        $("input[name=delete]").addClass("btn btn-all");
+        $("input[name=delete]").attr("data-toggle", "modal");
+        $("input[name=delete]").attr("data-target", "#myModal");
+        $("form").find("th").remove();
+    });
+</script>
+                        
+{/block}
+
+{block head}
+
+<style>
+  
+   
+    
+    h4{
+        margin-top: 30px;
+        padding-bottom: 0px;
+    }
+
+         td {
+    border: 0px solid rgb(75,75,75);
+    }
+    
+    th{
+        border: transparent;
+    }
+    
+    th {
+    background-color: #e20074;
+    color: #fff;
+   
+    } 
+    
+    th, td {
+    border-bottom: 1px solid rgb(75,75,75);
+}
+     
+    
+</style>
+{/block}  
+

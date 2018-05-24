@@ -1,0 +1,111 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+          <a href="/TP/www/profil/"> <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;"> </a>
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+         
+         <li><a n:href=":Profil:default">{$email}</a></li>
+         <li><a n:href=":Facility:default"><span class="sr-only">Back</span>
+                  <span class="icon icon-scroll-left"></span></a></li>  
+         <li><a n:href=":Sign:logout">Log out</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header> 
+
+<div align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<h4>Add new biketype </h4>
+<br>
+
+{control addNewTypeForm}
+
+<!--<form n:name=addNewTypeForm class=form>
+    <p><label n:name=bike_name>Name of bike: <input n:name=bike_name ></label>
+    <p><label n:name=color>Color: <input n:name=color></label>
+    <p><label n:name=size>Size: <input n:name=size></label>
+    <p><label n:name=gears>Gears: <input n:name=gears></label>
+    <p><label n:name=max_speed_kmh>Max speed: <input n:name=max_speed_kmh></label>
+    <p><label n:name=max_load_kg>Max load: <input n:name=max_load_kg></label>
+    <p><label n:name=range_km>Range: <input n:name=range_km></label>
+    <p><label n:name=weight_kg>Weight: <input n:name=color></label>
+    <p><label n:name=photo_filename>Photo: <input n:name=photo_filename></label>
+    <p><input n:name=add class="btn btn-brand" style="width:25%!important">
+</form>   -->
+
+
+
+</div>
+
+
+
+
+<script>
+ $(document).ready( function(){
+        $("input[name=add]").addClass("btn btn-all");
+    });
+</script>
+
+
+
+{/block}
+
+{block head}
+
+<style>
+    
+    label {
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+}
+
+ @media screen and (max-width: 700px){
+     
+     td{
+         padding-top: 15px;
+         text-align: center!important;
+     }
+     
+     th,td{
+         
+         width: 80%!important;
+         display: block;
+         padding-left: 70px;
+         
+         
+     }
+     
+     label{
+         text-align: center!important;
+     }
+     
+ }
+
+</style>
+
+
+

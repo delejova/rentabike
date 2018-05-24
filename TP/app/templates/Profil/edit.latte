@@ -1,0 +1,130 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+          <a href="/TP/www/profil/"><img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;"></a>
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+        
+         <li><a n:href=":Profil:default">{$email}</a></li> 
+         <li><a n:href=":Sign:logout">Log out</a></li>
+           <li><a n:href=":Profil:default"><span class="sr-only">Back</span>
+                  <span class="icon icon-scroll-left"></span></a></li>  
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+  
+  <div class="text-center"> <br>
+  <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+    
+  <h4> Edit booking</h4>
+
+<form n:name=editBookForm class=form>
+    <p><label n:name=startTime >Rent time: <input n:name=startTime type="date" size=20></label>
+    <p><label n:name=endTime>Return time: <input n:name=endTime type="date" size=20></label>
+    <p><input n:name=save class="btn btn-brand" style="width:25%!important">
+</form>
+  <div class="container">
+      <div class="col-md-4 col-sm-1"></div>
+      <div class="col-md-4 col-sm-10">
+  <br> <H2> <strong>{$editedBooking->bike_name }</strong></H2>
+ <img src="{$basePath}/images/{$editedBooking->photo_filename}" class="img-responsive img-circle booking-img">
+ 
+ <div n:if="$editedBooking->bike_number">
+    <BR> <B> Number of bike: </B> {$editedBooking->bike_number}
+</div>
+
+
+<div n:if="$editedBooking->bike_status">
+     <B> Status of bike: </B> {$editedBooking->bike_status}
+</div>
+
+<div n:if="$editedBooking->rent_status">
+     <B> Status of rent: </B> {$editedBooking->rent_status}
+</div>
+
+<div n:if="$editedBooking->last_return">
+     <B> Last return: </B> {$editedBooking->last_return}
+</div>
+
+<div n:if="$editedBooking->color">
+     <B> Color: </B> {$editedBooking->color}
+</div>
+
+<div n:if="$editedBooking->size">
+     <B> Size: </B> {$editedBooking->size}
+</div>
+
+<div n:if="$editedBooking->gears">
+    <B> Gears: </B> {$editedBooking->gears}
+</div>
+
+<div n:if="$editedBooking->max_load_kg">
+    <B> Max speed: </B> {$editedBooking->max_speed_kmh}
+</div>
+
+<div n:if="$editedBooking->max_speed_kmh">
+     <B> Max load: </B> {$editedBooking->max_load_kg }
+</div>
+
+<div n:if="$editedBooking->range_km ">
+     <B> Range (km) : </B> {$editedBooking->range_km }
+</div>
+
+<div n:if="$editedBooking->weight_kg ">
+     <B> Weight (kg): </B> {$editedBooking->weight_kg }
+</div>
+ 
+<!-- <BR> <B> number of bike: </B> {*$editedBooking->bike_number	    *}
+<BR> <B> Place of bike:	 </B> {*$editedBooking->place	        *}
+<BR> <B> Status of bike: </B> {*$editedBooking->bike_status	        *}
+<BR> <B> Status of rent: </B> {*$editedBooking->rent_status	        *}
+<BR> <B> Last return:	 </B> {*$editedBooking->last_return	    *}
+<BR> <B> Color:		 </B> {*$editedBooking->color           *}
+<BR> <B> Size:           </B> {*$editedBooking->size            *}
+<BR> <B> Gears:		 </B> {*$editedBooking->gears           *}
+<BR> <B> Max speed:	 </B> {*$editedBooking->max_speed_kmh   *}
+<BR> <B> Max load (kg):	 </B> {*$editedBooking->max_load_kg     *}
+<BR> <B> Range (km):	 </B> {*$editedBooking->range_km        *}
+<BR> <B> Weight (kg):	 </B> {*$editedBooking->weight_kg       *} -->
+</div>
+</div>
+</div>
+
+    
+
+            
+{/block}
+
+{block head}
+
+<style>
+
+</style>
+{/block}  
+
+
+
+
+

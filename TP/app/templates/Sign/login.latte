@@ -1,0 +1,65 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+           <li><a n:href=":Sign:register">Sign Up</a></li>
+           
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+           
+   
+    
+         
+    
+<div align="center"><br>
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+    <br>
+    <br>
+    <form n:name=loginForm class=form>
+    <p><label n:name=usermail>Email: <input n:name=usermail ></label>
+    <p><label n:name=password>Password: <input n:name=password></label>
+    <p><input n:name=submit class="btn btn-brand">
+    <p><label class="checkbox" n:name="expiration">    
+    <p><input n:name=expiration type="checkbox"> Remember me 
+    </label>    
+    </form>     
+         
+</div>
+    <br>
+    <a n:href=":Forgot:default">Forgot password</a>
+            
+{/block}
+
+{block head}
+
+<style>
+
+</style>
+{/block}
+
+

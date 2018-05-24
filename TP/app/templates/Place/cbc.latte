@@ -1,0 +1,80 @@
+{* Latte template *}
+
+{block content}
+
+
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+          <a href="/TP/www/profil/"> <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;"> </a>
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+         
+         <li><a n:href=":Profil:default">{$email}</a></li> 
+         <li><a n:href=":Sign:logout">Log out</a></li>
+           <li><a n:href="Place:default"><span class="sr-only">Back</span>
+                  <span class="icon icon-scroll-left"></span></a></li>  
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+                 
+
+
+
+
+
+
+<div class="container" align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+ <h3> CBC Cassovar Business Center II, Žriedlová 13, 040 01, Košice </h3> 
+ <br>   
+<h4> You can rent these bikes: </h4>
+<br>
+
+
+{foreach $bikesCBC as $bike}
+<div class="col-md-4 card">
+<p>
+    <b>{$bike->id} </b>
+    <b>{$bike->bike_name} </b>
+    <br> Bike mumber : {$bike->bike_number}
+    <br> Stav : <strong>{$bike->status}</strong>
+    <br><img src="{$basePath}/images/{$bike->photo_filename}" class="img-responsive img-circle" height="100" width="100">
+    <!-- odkaz na prezenter book, v ktorom sa vola renderDefault s parametrom id (id_bike) -->
+    <a n:href="Book:default $bike->id">Book</a>
+</p>
+</div>
+{/foreach}    
+
+
+</div>
+
+
+            
+{/block}
+
+{block head}
+
+<style>
+
+</style>
+{/block} 

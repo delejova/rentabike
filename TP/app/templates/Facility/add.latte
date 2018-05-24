@@ -1,0 +1,138 @@
+{* Latte template *}
+
+{block content}
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+          <a href="/TP/www/profil/"><img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;"></a>
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+         
+         <li><a n:href=":Profil:default">{$email}</a></li>
+         <li><a n:href=":Facility:default"><span class="sr-only">Back</span>
+                  <span class="icon icon-scroll-left"></span></a></li>  
+         <li><a n:href=":Sign:logout">Log out</a></li>
+            
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<h4> Add bike of existing type</h4>
+<br>
+{control addNewForm} 
+
+
+
+<form n:name=addNewType class=form style="padding-left: 200px;">
+    <p><input n:name=add_new_type class="btn btn-brand" >
+</form>
+
+
+
+
+
+</div>
+
+
+
+    
+
+ <script>
+ $(document).ready( function(){
+        $("label[name=edit]").addClass("form");
+        $("input[name=add]").addClass("btn btn-all");
+      
+    });
+</script>
+
+
+{/block}
+
+{block head}
+
+
+<style>
+    
+    label {
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+}
+
+th {
+    width: 200px;
+}
+
+
+ @media screen and (max-width: 700px){
+    
+     input.btn.btn-brand.form-input{
+         width: 90%!important;
+         text-align: center;
+      
+     }
+     
+    form{
+            padding-left:0px!important;
+            
+        }
+     
+     
+    td{
+         padding-top: 15px;
+         text-align: center!important;
+     }
+     
+     
+     
+     table{
+         margin-left:65px!important;
+         
+     }
+     
+     select{
+         width:100%;
+     }
+     
+     th,td{
+         
+         width: 80%!important;
+         display: block;
+         
+         
+         
+     }
+     
+     label{
+         text-align: center!important;
+         width: 80%;
+     }
+     
+     
+     
+     
+ }
+</style>
+
+
+

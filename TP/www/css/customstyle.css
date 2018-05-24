@@ -1,0 +1,346 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5.1.2017, 23:44:03
+    Author     : Gaby
+*/
+
+ body {
+      height:100vh;
+      width:100%;
+      background-image:url("../images/bckg.jpg");
+      font-size: 15px;
+      
+/*      background-repeat:no-repeat; 
+      background-size:100% 100%;*/
+      
+      text-align: center;
+      font-family: sans-serif;
+    }
+    
+   
+    flash{
+        color: #e20074;
+    }
+    
+    a {
+    color: #e20074;
+    text-decoration: none;
+    }   
+    
+
+     
+    h1 {
+        font-family: 'Lobster', cursive;
+        font-size: 4.5em;
+        font-weight: 500;
+        text-align: center;
+        color: #fff;
+        display:inline;
+        opacity: 1;
+        text-shadow: 1px 2px 3px #424242;
+    }
+    
+    
+    
+    h3{
+        font-size: 1.0em;       
+        font-weight: 500;
+        text-align: center;
+        color: #ttt;    
+        opacity: 1;
+        
+        font-weight: bold;
+        text-shadow: 1px 1px 2px #6C6C6C;
+    }
+    
+    h4{
+        font-family: 'Lobster', cursive;
+        font-size: 2.5em;       
+        font-weight: 500;
+        text-align: center;
+        color: #ttt;
+        display:block;
+        opacity: 1;
+        text-shadow: 1px 2px 3px #d0006b;
+    }
+   
+ 
+    .container-fixed{
+        width:100%;
+    }
+     
+    .brand-logo{
+        padding-top: 30px;
+        height: 50%;
+        min-width: 25%;
+        text-align:left;
+        
+    }
+    
+    .brandbar{
+        width: 100%;    
+        padding-bottom: 25px;
+    }
+    
+    .brandbar div{
+        display: inline-block;
+    }
+    
+    .brandbar img{
+        display: inline;
+        width: 150px;
+        left:5%;    
+        margin-right:5%;
+        opacity: 1;
+    }
+    
+    .brand-claim{
+        
+        position:relative;
+        float:left!important;
+        top: -8%;
+        width: 49%;
+    }
+    
+    .brand-footer{
+        position:fixed;
+        bottom:0px;
+        width:100%;
+        height: 30px;
+        font-size: 15px;
+
+    }
+    
+    .brand-footer-bar {
+        text-align: center;
+        padding-top: 5px;
+        
+        margin-left: 40%;
+    }
+    
+    .brand-footer-bar-text{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        
+        
+    }    
+    
+    .brand-footer-bar{
+      
+    }
+    
+    .brand-header .navbar{
+        min-height:25px;
+    }
+    .navbar-default{
+        border: 0px !important;
+        height:25px;
+    }
+    .navbar-default ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    
+    
+    .navbar-nav-icons>li>a {
+    font-weight: bold;    
+    font-size: 15px;
+    padding: 0px;
+    background: transparent;
+}
+    
+    table {
+     margin-top: 30px;
+    }
+    
+    th{
+        text-align: center;
+        width: 70px;
+        height: 30px;
+    }
+    
+    td{
+      text-align: center;
+      padding:3px;
+    }
+    
+    .form-input-set{
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    
+    .btn-brand{
+    color: #fff;
+    background-color: #e20074;
+    border-color: #A00053;
+    width: 15%!important;
+    margin-left: auto!important;
+    margin-right:auto!important;
+    display: block;
+    }
+    
+    
+    
+    .btn-all{
+    color: #fff;
+    background-color: #e20074;
+    border-color: #A00053;
+    margin-left: auto!important;
+    margin-right:auto!important;
+    display: block;
+        
+    }
+    
+   
+     .btn-brand:hover{
+       border-color: #A00053;
+       background-color: #d0006b;
+       color: #ttt;
+       
+    }
+    
+     .btn-all:hover{
+       border-color: #A00053;
+       background-color: #d0006b;
+       color: #fff;
+       
+    }
+    
+  
+    
+  
+    
+    a:hover{
+      color: #a00053;  
+    }
+    
+    form{
+        width: 50%;
+        margin-top: 30px;
+        
+    }
+    
+    form .button{
+        width:100%;
+       
+        
+    }
+    
+    h5{
+        font-size: 5.5em;
+        
+    }
+    h6{
+        font-family: 'Lobster', cursive;
+        font-size: 4.5em;
+        font-weight: 500;
+        text-align: center;
+        color: #e20074;
+        margin-top: 198px;
+        opacity: 1;
+        text-shadow: 1px 2px 3px #424242;  
+    }
+    label {
+        width: 18%;
+        margin: 5px;
+    }
+    
+    a:hover{
+        text-decoration: none;
+    }
+    
+    form{
+        width: 100%;
+        margin-top: 0px;
+        
+       
+    }
+    
+    submit{
+        width: 15%;
+    }
+    
+    form table{
+        border: 0px!important;
+        margin-top: 0px;
+         margin-right:auto;
+        margin-left: auto;
+    }
+    
+    form table td{
+        border: 0px!important;
+    }
+    
+    form table th{
+        background-color: transparent;
+        border: 0px;
+    }    
+    
+    .modal-content form table{
+        width:100%;
+    }
+    
+    .modal-content form input{
+        width:15%;
+     }
+     
+
+    .modal-backdrop {
+     z-index: -1;
+}
+
+.booking-img{
+   width:50%;
+   margin-right:auto;
+   margin-left:auto;
+}
+       
+    @media screen and (max-width: 700px){
+        
+        object{
+            height:699px;
+        }
+        
+        .btn-brand, .btn-all{
+            width: 95%!important;
+        }
+        
+        form{
+            align: center!important;
+            padding-right:0px!important;
+            padding-left:0px!important;
+            width: 100%!important;
+        }
+        
+       
+         
+         .modal-content form input{
+        width:80%;
+    }
+
+    
+        .navbar-nav-icons>li>a {
+    font-weight: bold;    
+    font-size: 13px;
+    padding: 0px;
+    background: transparent;
+ 
+    
+}
+         
+         h1{
+             font-size: 2.5em;
+         }
+         
+        
+         
+         label{
+             width: 90%;
+         }
+        
+    }

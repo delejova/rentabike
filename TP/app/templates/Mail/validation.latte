@@ -1,0 +1,28 @@
+{block content}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Completion of registration</title>                    <!-- Predmet mailu v title -->
+
+    </head>
+    <body>
+        <p>Dear user <strong>{$firstName} {$lastName}</strong>,</p>
+
+        <p>Somebody has requested change of your password on the portal <a href="https://rentabike.generacia.xyz">https://rentabike.generacia.xyz</a> with your email address <strong>{$email}</strong>.<br></p>
+        <p>In case, it was not you, please ignore this email.</p>
+        <p>In case, you have created such registration, please follow the link:
+            <a href="https://rentabike.generacia.xyz">https://rentabike.generacia.xyz</a> <br>
+            Use you credentials you filled out in registration form.
+        </p>
+
+        <p>Login: <strong>{$email}</strong></p>
+        <p>Validation Code: <strong>{$validationCode}</strong></p>
+
+        <p><div style="font-style: italic;">S pozdravom / Yours sincerely </div>
+        <strong>Hipsteri</strong></p>
+
+    <p><strong><div style="font-size: 11px;">This email has been automatically generated, please do not reply.</div></strong></p>
+
+</body>
+</html>
+{/block content}

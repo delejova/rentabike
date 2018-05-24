@@ -1,0 +1,120 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+        
+          <li><a n:href=":Profil:default">{$email}</a></li>         
+          <li><a n:href=":Sign:logout">Log out</a></li>
+          <li><a n:href=":Profil:default"><span class="sr-only">Back</span>
+                  <span class="icon icon-scroll-left"></span></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+<div align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>   
+<h4>Manage Reservations</h4>
+<table border="1">
+
+    <tr> 
+        <th> ID employee</th>
+        <th> First name</th>
+        <th> Last name</th>
+        <th> Bike number</th>
+        <th> Bike name</th>
+        <th> Book start</th>
+        <th> Book end</th>
+        <th> Rent </th>
+        <th> Action </th>
+    </tr>
+    {foreach $rent as $rentt}
+        <!--    <br>Id bike:{$rentt->id_bike} 
+            <br>ID user:{$rentt->id_user} 
+        -->
+        <tr>
+            <td> {$rentt->id_employee} </td>
+            <td> {$rentt->first_name} </td>
+            <td> {$rentt->last_name} </td>
+            <td> {$rentt->bike_number} </td>
+            <td> {$rentt->bike_name} </td>
+            <td> {$rentt->book_start} </td>
+            <td> {$rentt->book_end} </td>
+            <td> {$rentt->rent_status} </td>
+            <td>
+                  {control wasRentedButton-$rentt->id}
+            </td>
+        </tr>
+        <!--    <br>Rent start:{$rentt->rent_start} 
+            <br>Rent end:{$rentt->rent_end} -->
+
+    {/foreach}
+
+</table>
+        
+
+    <br>        
+    <a n:href=":Sign:login">Back</a> 
+</div>
+
+
+
+
+
+<script>
+ $(document).ready( function(){
+        $("input[name=rent]").addClass("btn btn-all");
+        $("input[name=return]").addClass("btn btn-all");
+         $("form").find("th").remove();
+    });
+</script>
+
+{/block}
+
+{block head}
+
+<style>
+  
+         td {
+    border: 0px solid rgb(75,75,75);
+    }
+    
+    th{
+        border: transparent;
+    }
+    
+    th {
+    background-color: #e20074;
+    color: #fff;
+   
+    } 
+    
+    th, td {
+    border-bottom: 1px solid rgb(75,75,75);
+}
+    
+    </style>

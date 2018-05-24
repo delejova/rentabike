@@ -1,0 +1,59 @@
+
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+          <a href="/TP/www/profil/"> <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;"> </a>
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+         
+         <li><a n:href=":Profil:default">{$email}</a></li>
+         
+         
+          <li><a n:href=":Profil:default"><span class="sr-only">Back</span>
+         <span class="icon icon-scroll-left"></span></a></li> 
+         <li><a n:href=":Sign:logout">Log out</a></li>             
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<h4>Manage Bikes </h4>
+
+<br>
+<br><b><a n:href=":Facility:add"> Add </a></b>
+<br>
+<br> <b><a n:href=":Facility:existing"> Edit </a></b><br>
+
+</div>
+
+
+
+
+
+{/block}
+
+{block head}

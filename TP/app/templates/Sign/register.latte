@@ -1,0 +1,80 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+        <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;">
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+           <li><a n:href=":Sign:licence">Licence</a></li>
+           <li><a n:href=":Sign:login">Back</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+         
+  
+            
+            
+
+    
+    
+<div align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<form n:name=registerForm class=form>
+    <p><label n:name=usermail>Email: <input n:name=usermail ></label>
+    <p><label n:name=password>Password: <input n:name=password></label>
+    <p><label n:name=password_repeat>Password again: <input n:name=password_repeat></label>
+    <p><label n:name=firstName>First name: <input n:name=firstName></label>
+    <p><label n:name=lastName>Last name: <input n:name=lastName></label>
+    <p><label n:name=employeeId>Your ID: <input n:name=employeeId></label>
+    <p><input n:name=register class="btn btn-brand">
+    <p><label class="checkbox" n:name="regAgree">    
+            <p><input n:name=regAgree type="checkbox"> I have read and agree to the <a n:href=":Sign:licence">TERMS & CONDITIONS OF THE T-SYSTEMS SLOVAKIA.</a> 
+    </label>
+</form>
+        
+</div>
+     
+ 
+
+
+
+
+
+{/block}
+
+{block head}
+<style>
+    
+background {
+    background-image:url("../../images/cbc2.jpg");
+    border: 2px solid black;
+    
+      background-repeat:no-repeat; 
+      background-size:100% 100%;
+    
+}
+
+   
+</style>
+    {/block}

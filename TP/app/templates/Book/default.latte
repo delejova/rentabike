@@ -1,0 +1,189 @@
+{* Latte template *}
+
+{block content}
+
+<header class="brand-header">
+  <div class="brandbar">
+    <div class="container-fixed">
+      <div class="brand-logo">
+          <a href="/TP/www/profil/"> <img src="{$basePath}/images/deutsche-telekom-logo.svg" alt="Telekom Logo" data-pin-nopin="true" style="height: 50px;"> </a>
+        <span class="sr-only">Telekom Logo</span>
+      </div>
+      <div class="brand-claim">
+        <a n:href=":Sign:login"><h1><strong> Rent a bike </strong></h1></a>
+        <span class="sr-only">Rent a bike</span>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default" style="margin-bottom: 0px;">
+    <div class="container-fixed">
+      <div class="navbar-expanded">
+
+        </div>
+      </div>
+      <div class="navbar-persistent">
+
+        <ul class="nav navbar-nav navbar-nav-icons navbar-right">
+         
+         <li><a n:href=":Profil:default">{$email}</a></li>
+          <li><a n:href=":Sign:logout">Log out</a></li>
+         <li><a n:href=":Place:default"><span class="sr-only">Back</span>
+                  <span class="icon icon-scroll-left"></span></a></li>  
+         
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+            
+
+                
+               
+ 
+  
+  
+    
+    
+ 
+
+    
+    <div align="center"> <br>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+ <H2> <strong> {$bike->bike_name } </strong></H2>
+ <img src="{$basePath}/images/{$bike->photo_filename}" class="img-responsive img-circle" height="100" width="100">
+ 
+ 
+<div n:if="$bike->bike_number">
+    <BR> <B> Number of bike: </B> {$bike->bike_number}
+</div>
+
+
+<div n:if="$bike->status">
+     <B> Status: </B> {$bike->status}
+</div>
+
+<div n:if="$bike->last_return">
+     <B> Last return: </B> {$bike->last_return}
+</div>
+
+<div n:if="$bike->color">
+     <B> Color: </B> {$bike->color}
+</div>
+
+<div n:if="$bike->size">
+     <B> Size: </B> {$bike->size}
+</div>
+
+<div n:if="$bike->gears">
+    <B> Gears: </B> {$bike->gears}
+</div>
+
+<div n:if="$bike->max_load_kg">
+    <B> Max speed: </B> {$bike->max_speed_kmh}
+</div>
+
+<div n:if="$bike->max_speed_kmh">
+     <B> Max load: </B> {$bike->max_load_kg }
+</div>
+
+<div n:if="$bike->range_km ">
+     <B> Range (km) : </B> {$bike->range_km }
+</div>
+
+<div n:if="$bike->weight_kg ">
+     <B> Weight (kg): </B> {$bike->weight_kg }
+</div>
+
+
+<h4><strong> Create booking of this bike </strong></h4>
+
+ <form n:name=bookForm class=form>
+
+    <p><label n:name=startTime >Rent time: <input n:name=startTime type="datetime-local" size=20></label>    
+    <p><label n:name=endTime>Return time: <input n:name=endTime type="datetime-local"></label>
+   
+        <br>    
+    <p>   
+    <button type="button"  class="btn btn-brand btn-lg" data-toggle="modal" data-target="#myModal">Reserve</button>
+    </p>
+    <!--<p><input n:name="reserve" class="btn btn-brand">-->
+        
+  <div id="myModal" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+     
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Warning!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you really sure you want to rent a bike?</p>
+      </div>
+      <div class="modal-footer">
+          <p><input n:name="reserve" class="btn btn-brand" >
+              <br>
+        <button type="button" class="btn btn-brand form-input" data-dismiss="modal">No</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+   
+
+<!--<button type="button" class="btn btn-brand" data-toggle="modal"
+        data-target="#modal-init-demo">Modal-Dialog öffnen<button type="button" class="btn btn-brand" data-toggle="modal"
+ </button>-->
+
+<!-- Der Modal-Dialog -->
+<!--<div id="modal-init-demo" class="modal fade" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">x</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Headline</h4>
+            </div>
+            <div class="modal-body">
+                <p>Content...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-brand"
+                        data-dismiss="modal">Schließen</button>
+                <button type="button" class="btn btn-brand"
+                        data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+ </form>
+  
+</div>
+     
+     
+   
+   
+</form>
+
+   
+
+
+
+
+    </div>
+
+
+            
+{/block}
+
+{block head}
+
+<style>
+
+</style>
+{/block}
